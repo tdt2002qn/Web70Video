@@ -8,8 +8,13 @@ import {
   ShoppingCartOutlined,
 } from '@ant-design/icons';
 import ButtonInputSearch from '../ButtonInputSearch/ButtonInputSearch';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderComponent = () => {
+  const navigate = useNavigate()
+  const handleNavigateLogin = () => {
+    navigate('/signin')
+  }
   return (
     <div>
       <WrapperHeader gutter={15}>
@@ -17,7 +22,7 @@ const HeaderComponent = () => {
           <h1> <WrapperTextHeader>DIEN THOAI GIA RE</WrapperTextHeader></h1>
         </Col>
 
-        <Col span={12} >
+        <Col span={10} >
           <ButtonInputSearch
             size='large'
             textButton='Tìm kiếm'
@@ -25,18 +30,19 @@ const HeaderComponent = () => {
 
           //onSearch={onSearch}
           /></Col>
-        <Col span={6} style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
+        <Col span={8} style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
 
           <WrapperHeaderAccount>
 
             <UserOutlined style={{ fontSize: '30px' }} />
 
-            <div>
+            <div onClick={handleNavigateLogin} style={{ cursor: 'pointer' }}>
               <WrapperHeaderSmall> Đăng nhập/Đăng ký</WrapperHeaderSmall> <br />
-              <div>
-                <DownCircleOutlined />
-                <WrapperHeaderSmall>Tài Khoản</WrapperHeaderSmall>
-              </div>
+            </div>
+            <div>
+              <DownCircleOutlined />
+              <WrapperHeaderSmall>Tài Khoản</WrapperHeaderSmall>
+
             </div>
           </WrapperHeaderAccount>
           <div>

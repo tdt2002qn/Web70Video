@@ -2,10 +2,14 @@ import { Input } from 'antd'
 import React, { useState } from 'react'
 
 const InputForm = (props) => {
-  const [valueInput, setValueinput] = useState('')
+
   const { placeholder = 'Nhập', ...rests } = props
+  const handleOnchangeInput = (e) => {
+    props.onChange(e.target.value)
+
+  }
   return (
-    <Input placeholder={placeholder} valueInput={valueInput}  {...rests} />
+    <Input placeholder={placeholder} value={props.value}  {...rests} onChange={handleOnchangeInput} />
 
   )
 }
